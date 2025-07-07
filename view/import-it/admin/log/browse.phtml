@@ -1,0 +1,44 @@
+<?php $this->htmlElement('body')->appendAttribute('class', 'importit importit-logs browse'); ?>
+
+<?= $this->pageTitle(sprintf('%s (job #%d)', $source->name(), $job->id()), 1, 'Import It', $this->translate('Logs')); ?>
+
+<div class="browse-controls">
+    <?php echo $this->pagination(); ?>
+
+    <?= $this->partial('import-it/admin/log/filter-priorities') ?>
+
+    <?= $this->browse()->renderSortSelector('importit_logs'); ?>
+</div>
+
+<table class="tablesaw" data-tablesaw-mode="stack">
+    <thead>
+        <tr>
+            <th><?= $this->translate('Messages'); ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($logs as $log): ?>
+            <?php $timestamp = clone $log->timestamp(); ?>
+            <?php $timestamp->setTimezone(new \DateTimeZone($this->setting('time_zone', 'UTC'))); ?>
+            <tr>
+                <td>
+                    <pre class="log-<?php echo $log->priorityName();?>"><?= $this->escapeHtml(sprintf('%s [% 6s] %s', $timestamp->format('Y-m-d H:i:s'), $log->priorityName(), $log->message())) ?></pre>
+                    <?php $extra = $log->extra(); ?>
+                    <?php if (!empty($extra)): ?>
+                        <details>
+                            <summary><?= $this->translate('Show details'); ?></summary>
+                            <pre><?= $this->escapeHtml(json_encode($extra, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)); ?></pre>
+                        </details>
+                    <?php endif; ?>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+<div>
+    <?= $this->translate('Download complete log file:') ?>
+    <?= $this->hyperlink($this->translate('JSONL'), $this->url('admin/importit/log-download', ['source-id' => $source->id(), 'job-id' => $job->id(), 'format' => 'jsonl'] )) ?>
+    &middot;
+    <?= $this->hyperlink($this->translate('TXT'), $this->url('admin/importit/log-download', ['source-id' => $source->id(), 'job-id' => $job->id(), 'format' => 'txt'] )) ?>
+</div>

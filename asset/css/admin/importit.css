@@ -1,0 +1,27 @@
+header nav .importit::before,
+.importit .subhead::before {
+    content: '\f56f';
+}
+
+.importit-logs.browse details summary {
+    cursor: pointer;
+    display: list-item;
+}
+
+.importit-logs.browse pre {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.importit-logs.browse .tablesaw-cell-content {
+    flex-wrap: wrap;
+}
+
+.importit-logs.browse .tablesaw-cell-content details {
+    flex-basis: 100%;
+}
+
+.importit-jobs.browse td:first-child,
+.importit-jobs.browse th:first-child {
+    width: auto;
+}

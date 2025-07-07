@@ -1,0 +1,33 @@
+<?php
+$translate = $this->plugin('translate');
+?>
+<h3>
+    <a href="<?php echo $this->escapeHtml($resource->url()); ?>"><?php echo $this->escapeHtml($resource->name()); ?></a>
+</h3>
+
+<div class="meta-group">
+    <h4>ID</h4>
+    <div class="value"><?= $resource->id() ?></div>
+</div>
+
+<?= $resource->sourceType()->getSourceDetails($resource, $this) ?>
+
+<?php $jobCount = $this->api()->search('jobs', ['importit_source_id' => $resource->id(), 'limit' => 0])->getTotalResults() ?>
+<div class="meta-group">
+    <h4><?php echo $translate('Jobs'); ?></h4>
+    <div class="value"><?= $this->hyperlink($jobCount, $this->url('admin/importit/job', ['source-id' => $resource->id()])) ?></div>
+</div>
+
+<?php $itemCount = $this->api()->search('items', ['importit_source_id' => $resource->id(), 'limit' => 0])->getTotalResults() ?>
+<div class="meta-group">
+    <h4><?php echo $translate('Items'); ?></h4>
+    <div class="value"><?= $this->hyperlink($itemCount, $this->url('admin/default', ['controller' => 'item'], ['query' => ['importit_source_id[]' => $resource->id()]])) ?></div>
+</div>
+
+<?php $mediaCount = $this->api()->search('media', ['importit_source_id' => $resource->id(), 'limit' => 0])->getTotalResults() ?>
+<div class="meta-group">
+    <h4><?php echo $translate('Media'); ?></h4>
+    <div class="value"><?= $this->hyperlink($mediaCount, $this->url('admin/default', ['controller' => 'media'], ['query' => ['importit_source_id[]' => $resource->id()]])) ?></div>
+</div>
+
+<?php $this->trigger('view.details', array('entity' => $resource)); ?>

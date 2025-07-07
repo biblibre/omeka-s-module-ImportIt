@@ -1,0 +1,59 @@
+<?php
+$translate = $this->plugin('translate');
+// Prepare the resource class query.
+$ids = isset($query['importit_source_id']) ? $query['importit_source_id'] : [];
+if (!is_array($ids)) {
+    $ids = [$ids];
+}
+$ids = array_filter($ids);
+if (!$ids) {
+    $ids = [null];
+}
+?>
+
+<?php
+// Sending multiple values breaks user search (because of searchUserFilters view helper)
+// Unlike with other advanced search pages, $resourceType is not passed to user
+// search partials, so that's how we detect we are in user advanced search page
+$multiple = isset($resourceType) && $resourceType !== 'user';
+?>
+
+<?php $sources = $this->api()->search('importit_sources')->getContent() ?>
+<?php if ($sources): ?>
+<div id="importit-source" class="field removable multi-value" role="group">
+    <div class="field-meta">
+        <span id="by-importit-source-label" class="label"><?php echo $translate('Search by source (Import It)'); ?></span>
+        <?php echo $this->hyperlink('', '#', ['class' => 'expand', 'title' => $translate('Expand')]); ?>
+        <div class="collapsible">
+            <div class="field-description"><?php echo $translate('Searches for resources that were imported from any of these sources.'); ?></div>
+        </div>
+        <?php if ($multiple): ?>
+            <button type="button" class="add-value o-icon-add button" aria-label="<?php echo $translate('Add new source'); ?>" title="<?php echo $translate('Add new source'); ?>"></button>
+        <?php endif; ?>
+    </div>
+    <div class="inputs">
+        <?php $sourcesOptions = array_map(fn($s) => ['value' => $s->id(), 'label' => $s->name()], $sources); ?>
+        <?php foreach ($ids as $id): ?>
+        <div class="value">
+            <?php $sourceSelect = new \Laminas\Form\Element\Select($multiple ? 'importit_source_id[]' : 'importit_source_id') ?>
+            <?php $sourceSelect->setValueOptions($sourcesOptions) ?>
+            <?php $sourceSelect->setEmptyOption($translate('Select source…')) ?>
+            <?php $sourceSelect->setValue($id); ?>
+            <?= $this->formSelect($sourceSelect) ?>
+            <?php if ($multiple): ?>
+                <button type="button" class="o-icon-delete remove-value button" aria-label="<?php echo $translate('Remove value'); ?>" title="<?php echo $translate('Remove value'); ?>"></button>
+            <?php endif; ?>
+        </div>
+        <?php endforeach; ?>
+    </div>
+</div>
+
+<script>
+    $(document).on('submit', '#advanced-search', function(e) {
+        const select = this.elements.namedItem('importit_source_id[]');
+        if (select && select.value === '') {
+            select.name = '';
+        }
+    });
+</script>
+<?php endif; ?>

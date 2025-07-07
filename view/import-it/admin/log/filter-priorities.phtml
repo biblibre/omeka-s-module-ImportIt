@@ -1,0 +1,24 @@
+<?php
+    $priorities = [
+        \Laminas\Log\Logger::ALERT => 'Alert', // @translate
+        \Laminas\Log\Logger::CRIT => 'Critical', // @translate
+        \Laminas\Log\Logger::ERR => 'Error', // @translate
+        \Laminas\Log\Logger::WARN => 'Warning', // @translate
+        \Laminas\Log\Logger::NOTICE => 'Notice', // @translate
+        \Laminas\Log\Logger::INFO => 'Info', // @translate
+        \Laminas\Log\Logger::DEBUG => 'Debug', // @translate
+    ];
+
+    $select = new \Laminas\Form\Element\Select('max_priority');
+    $select->setValueOptions(array_reverse($priorities, true));
+    $select->setValue($this->params()->fromQuery('max_priority', \Laminas\Log\Logger::DEBUG));
+?>
+
+<form class="filtering">
+    <?= $this->queryToHiddenInputs(['max_priority', 'page']); ?>
+
+    <label><?= $this->translate('Log level') ?></label>
+    <?= $this->formSelect($select); ?>
+
+    <button type="submit"><?php echo $this->translate('Filter'); ?></button>
+</form>

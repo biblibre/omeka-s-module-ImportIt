@@ -1,0 +1,194 @@
+# French translations for PACKAGE package.
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-11 12:19+0200\n"
+"PO-Revision-Date: 2025-07-11 12:23+0200\n"
+"Last-Translator: Julian Maurice <julian.maurice@biblibre.com>\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.6\n"
+
+#: src/Api/Adapter/LogAdapter.php:35 src/Api/Adapter/LogAdapter.php:132
+msgid "Missing required parameter \"job_id\""
+msgstr "Paramètre obligatoire manquant \"job_id\""
+
+#: src/Api/Adapter/LogAdapter.php:52 src/Api/Adapter/LogAdapter.php:149
+#, php-format
+msgid "Failed to open log file \"%s\""
+msgstr "Impossible d'ouvrir le fichier de journalisation \"%s\""
+
+#: src/Api/Adapter/LogAdapter.php:140
+#, php-format
+msgid "Job #%d does not exist"
+msgstr "La tâche #%d n'existe pas"
+
+#: src/Api/Adapter/LogAdapter.php:192
+#, php-format
+msgid "Failed to create directory \"%s\""
+msgstr "Impossible de créer le répertoire \"%s\""
+
+#: src/Controller/Admin/SourceController.php:166
+msgid "See job details"
+msgstr "Voir les détails de la tâche"
+
+#: view/import-it/admin/job/browse.phtml:24
+#: view/import-it/admin/job/browse.phtml:64
+#: view/import-it/admin/job/show.phtml:61
+#: view/import-it/admin/log/browse.phtml:3
+#: view/import-it/admin/source/browse.phtml:81
+msgid "Logs"
+msgstr "Journaux"
+
+#: view/import-it/admin/job/show.phtml:21
+#, php-format
+msgid "%s (job #%d)"
+msgstr "%s (tâche #%d)"
+
+#: view/import-it/admin/log/browse.phtml:16
+msgid "Messages"
+msgstr "Messages"
+
+#: view/import-it/admin/log/browse.phtml:29
+msgid "Show details"
+msgstr "Voir les détails"
+
+#: view/import-it/admin/log/browse.phtml:40
+msgid "Download complete log file:"
+msgstr "Télécharger le fichier de journalisation complet:"
+
+#: view/import-it/admin/log/browse.phtml:41
+msgid "JSONL"
+msgstr "JSONL"
+
+#: view/import-it/admin/log/browse.phtml:43
+msgid "TXT"
+msgstr "TXT"
+
+#: view/import-it/admin/log/filter-priorities.phtml:20
+msgid "Log level"
+msgstr "Niveau de journalisation"
+
+#: view/import-it/admin/source/add.phtml:7
+msgid "New source"
+msgstr "Nouvelle source"
+
+#: view/import-it/admin/source/add.phtml:7
+#: view/import-it/admin/source/browse.phtml:13
+#: view/import-it/admin/source/edit.phtml:7
+#: view/import-it/admin/source/import.phtml:7
+msgid "Import It"
+msgstr "Import It"
+
+#: view/import-it/admin/source/browse.phtml:13
+msgid "Sources"
+msgstr "Sources"
+
+#: view/import-it/admin/source/browse.phtml:24
+#: view/import-it/common/advanced-search/source.phtml:31
+msgid "Add new source"
+msgstr "Ajouter une nouvelle source"
+
+#: view/import-it/admin/source/browse.phtml:36
+msgid "Latest job"
+msgstr "Dernière tâche"
+
+#: view/import-it/admin/source/browse.phtml:48
+#: view/import-it/admin/source/import.phtml:13
+msgid "Start import"
+msgstr "Démarrer l'import"
+
+#: view/import-it/admin/source/browse.phtml:106
+msgid "Omeka could not find any sources."
+msgstr "Omeka n'a trouvé aucune source."
+
+#: view/import-it/admin/source/edit.phtml:7
+msgid "Edit source"
+msgstr "Modifier la source"
+
+#: view/import-it/admin/source/edit.phtml:13
+msgid "Save changes"
+msgstr "Enregistrer les changements"
+
+#: view/import-it/common/advanced-search/source.phtml:25
+msgid "Search by source (Import It)"
+msgstr "Recherche par source (Import It)"
+
+#: view/import-it/common/advanced-search/source.phtml:28
+msgid "Searches for resources that were imported from any of these sources."
+msgstr ""
+"Recherche les ressources ayant été importées depuis l'une de ces sources."
+
+#: view/import-it/common/advanced-search/source.phtml:40
+msgid "Select source…"
+msgstr "Sélectionner une source…"
+
+#: view/import-it/common/source-type/server-side-mets/source-details.phtml:2
+msgid "Path"
+msgstr "Chemin"
+
+#: view/import-it/admin/log/filter-priorities.phtml:3
+msgid "Alert"
+msgstr "Alerte"
+
+#: view/import-it/admin/log/filter-priorities.phtml:4
+msgid "Critical"
+msgstr "Critique"
+
+#: view/import-it/admin/log/filter-priorities.phtml:7
+msgid "Notice"
+msgstr "Annonce"
+
+#: view/import-it/admin/log/filter-priorities.phtml:9
+msgid "Debug"
+msgstr "Debug"
+
+#: config/module.config.php:206
+msgid "Timestamp"
+msgstr "Horodatage"
+
+#: src/Form/SourceImportForm.php:17
+msgid "Delete all entities before import"
+msgstr "Supprimer toutes les entités avant l'import"
+
+#: src/Form/SourceImportForm.php:18
+msgid ""
+"Delete all entities that were imported from this source before starting the "
+"new import."
+msgstr ""
+"Supprime toutes les entités ayant été importées depuis cette source avant "
+"de démarrer le nouvel import."
+
+#: src/Controller/Admin/SourceController.php:52
+msgid "Source successfully created."
+msgstr "Source créée avec succès."
+
+#: src/Controller/Admin/SourceController.php:84
+msgid "Source successfully updated."
+msgstr "Source modifiée avec succès."
+
+#: src/Controller/Admin/SourceController.php:105
+msgid "source"
+msgstr "source"
+
+#: src/Controller/Admin/SourceController.php:118
+msgid "Source successfully deleted"
+msgstr "Source supprimée avec succès"
+
+#: src/Controller/Admin/SourceController.php:162
+#, php-format
+msgid "Import started in a background job. %s"
+msgstr "L'import a démarré dans une tâche de fond. %s"
+
+#: src/SourceType/ServerSideMets.php:12
+msgid "Server-side METS"
+msgstr "METS côté serveur"

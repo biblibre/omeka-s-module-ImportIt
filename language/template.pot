@@ -1,0 +1,190 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-11 12:19+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/Api/Adapter/LogAdapter.php:35 src/Api/Adapter/LogAdapter.php:132
+msgid "Missing required parameter \"job_id\""
+msgstr ""
+
+#: src/Api/Adapter/LogAdapter.php:52 src/Api/Adapter/LogAdapter.php:149
+#, php-format
+msgid "Failed to open log file \"%s\""
+msgstr ""
+
+#: src/Api/Adapter/LogAdapter.php:140
+#, php-format
+msgid "Job #%d does not exist"
+msgstr ""
+
+#: src/Api/Adapter/LogAdapter.php:192
+#, php-format
+msgid "Failed to create directory \"%s\""
+msgstr ""
+
+#: src/Controller/Admin/SourceController.php:166
+msgid "See job details"
+msgstr ""
+
+#: view/import-it/admin/job/browse.phtml:24
+#: view/import-it/admin/job/browse.phtml:64
+#: view/import-it/admin/job/show.phtml:61
+#: view/import-it/admin/log/browse.phtml:3
+#: view/import-it/admin/source/browse.phtml:81
+msgid "Logs"
+msgstr ""
+
+#: view/import-it/admin/job/show.phtml:21
+#, php-format
+msgid "%s (job #%d)"
+msgstr ""
+
+#: view/import-it/admin/log/browse.phtml:16
+msgid "Messages"
+msgstr ""
+
+#: view/import-it/admin/log/browse.phtml:29
+msgid "Show details"
+msgstr ""
+
+#: view/import-it/admin/log/browse.phtml:40
+msgid "Download complete log file:"
+msgstr ""
+
+#: view/import-it/admin/log/browse.phtml:41
+msgid "JSONL"
+msgstr ""
+
+#: view/import-it/admin/log/browse.phtml:43
+msgid "TXT"
+msgstr ""
+
+#: view/import-it/admin/log/filter-priorities.phtml:20
+msgid "Log level"
+msgstr ""
+
+#: view/import-it/admin/source/add.phtml:7
+msgid "New source"
+msgstr ""
+
+#: view/import-it/admin/source/add.phtml:7
+#: view/import-it/admin/source/browse.phtml:13
+#: view/import-it/admin/source/edit.phtml:7
+#: view/import-it/admin/source/import.phtml:7
+msgid "Import It"
+msgstr ""
+
+#: view/import-it/admin/source/browse.phtml:13
+msgid "Sources"
+msgstr ""
+
+#: view/import-it/admin/source/browse.phtml:24
+#: view/import-it/common/advanced-search/source.phtml:31
+msgid "Add new source"
+msgstr ""
+
+#: view/import-it/admin/source/browse.phtml:36
+msgid "Latest job"
+msgstr ""
+
+#: view/import-it/admin/source/browse.phtml:48
+#: view/import-it/admin/source/import.phtml:13
+msgid "Start import"
+msgstr ""
+
+#: view/import-it/admin/source/browse.phtml:106
+msgid "Omeka could not find any sources."
+msgstr ""
+
+#: view/import-it/admin/source/edit.phtml:7
+msgid "Edit source"
+msgstr ""
+
+#: view/import-it/admin/source/edit.phtml:13
+msgid "Save changes"
+msgstr ""
+
+#: view/import-it/common/advanced-search/source.phtml:25
+msgid "Search by source (Import It)"
+msgstr ""
+
+#: view/import-it/common/advanced-search/source.phtml:28
+msgid "Searches for resources that were imported from any of these sources."
+msgstr ""
+
+#: view/import-it/common/advanced-search/source.phtml:40
+msgid "Select source…"
+msgstr ""
+
+#: view/import-it/common/source-type/server-side-mets/source-details.phtml:2
+msgid "Path"
+msgstr ""
+
+#: view/import-it/admin/log/filter-priorities.phtml:3
+msgid "Alert"
+msgstr ""
+
+#: view/import-it/admin/log/filter-priorities.phtml:4
+msgid "Critical"
+msgstr ""
+
+#: view/import-it/admin/log/filter-priorities.phtml:7
+msgid "Notice"
+msgstr ""
+
+#: view/import-it/admin/log/filter-priorities.phtml:9
+msgid "Debug"
+msgstr ""
+
+#: config/module.config.php:206
+msgid "Timestamp"
+msgstr ""
+
+#: src/Form/SourceImportForm.php:17
+msgid "Delete all entities before import"
+msgstr ""
+
+#: src/Form/SourceImportForm.php:18
+msgid ""
+"Delete all entities that were imported from this source before starting the "
+"new import."
+msgstr ""
+
+#: src/Controller/Admin/SourceController.php:52
+msgid "Source successfully created."
+msgstr ""
+
+#: src/Controller/Admin/SourceController.php:84
+msgid "Source successfully updated."
+msgstr ""
+
+#: src/Controller/Admin/SourceController.php:105
+msgid "source"
+msgstr ""
+
+#: src/Controller/Admin/SourceController.php:118
+msgid "Source successfully deleted"
+msgstr ""
+
+#: src/Controller/Admin/SourceController.php:162
+#, php-format
+msgid "Import started in a background job. %s"
+msgstr ""
+
+#: src/SourceType/ServerSideMets.php:12
+msgid "Server-side METS"
+msgstr ""

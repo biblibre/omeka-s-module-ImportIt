@@ -1,0 +1,109 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ */
+
+$translate = $this->plugin('translate');
+$escape = $this->plugin('escapeHtml');
+$assetUrl = $this->plugin('assetUrl');
+
+$this->htmlElement('body')->appendAttribute('class', 'importit importit-source browse');
+?>
+
+<?= $this->pageTitle($translate('Sources'), 1, $translate('Import It')) ?>
+
+<?php echo $this->searchFilters(); ?>
+
+<div class="browse-controls">
+    <?php echo $this->pagination(); ?>
+    <?php echo $this->browse()->renderSortSelector('importit_sources'); ?>
+</div>
+
+<div id="page-actions">
+    <?php if ($this->userIsAllowed('ImportIt\Api\Adapter\SourceAdapter', 'create')): ?>
+        <?= $this->hyperlink($translate('Add new source'), $this->url(null, ['action' => 'add'], true), ['class' => 'button']) ?>
+    <?php endif; ?>
+</div>
+
+<?php $this->trigger('view.browse.before'); ?>
+<?php if ($sources): ?>
+
+<table class="tablesaw batch-edit" data-tablesaw-mode="stack">
+    <thead>
+        <tr>
+            <th><?php echo $translate('Name'); ?></th>
+            <th><?php echo $translate('Type'); ?></th>
+            <th><?php echo $translate('Latest job'); ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($sources as $source): ?>
+        <tr>
+            <td>
+                <?= $source->sourceType()->getSourceDescription($source, $this) ?>
+                <ul class="actions">
+                    <?php $this->trigger('view.browse.actions', ['resource' => $source]); ?>
+                    <li><?php echo $source->link('', 'import', [
+                        'class' => 'o-icon- fa-file-import',
+                        'title' => $translate('Start import'),
+                    ]); ?></li>
+                    <?php if ($source->userIsAllowed('update')): ?>
+                    <li><?php echo $source->link('', 'edit', [
+                        'class' => 'o-icon-edit',
+                        'title' => $translate('Edit'),
+                    ]); ?></li>
+                    <?php endif; ?>
+                    <?php if ($source->userIsAllowed('delete')): ?>
+                    <li><?php echo $this->hyperlink('', '#', [
+                        'data-sidebar-selector' => '#sidebar',
+                        'data-sidebar-content-url' => $source->url('delete-confirm'),
+                        'class' => 'o-icon-delete sidebar-content',
+                        'title' => $translate('Delete'),
+                    ]); ?></li>
+                    <?php endif; ?>
+                    <li><?php echo $this->hyperlink('', '#', [
+                        'data-sidebar-selector' => '#sidebar',
+                        'data-sidebar-content-url' => $source->url('show-details'),
+                        'class' => 'o-icon-more sidebar-content',
+                        'title' => $translate('Details'),
+                    ]); ?></li>
+                </ul>
+            </td>
+            <td><?= $this->escapeHtml($source->sourceType()->getLabel()) ?></td>
+            <td>
+                <?php $job = $source->latestJob(); ?>
+                <?php if ($job): ?>
+                    <span>
+                        <?= $this->hyperlink(sprintf('#%d', $job->id()), $this->url('admin/importit/job-id', ['source-id' => $source->id(), 'job-id' => $job->id()])) ?>
+                        ·
+                        <?= $this->translate($job->statusLabel()) ?>
+                        ·
+                        <?= $this->hyperlink($this->translate('Logs'), $this->url('admin/importit/log', ['source-id' => $source->id(), 'job-id' => $job->id()])) ?>
+                    </span>
+                <?php endif; ?>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+<?php $this->trigger('view.browse.after'); ?>
+<div class="browse-controls">
+    <?php echo $this->pagination(); ?>
+</div>
+
+<div id="sidebar" class="sidebar">
+    <?php echo $this->hyperlink('', '#', [
+        'class' => 'sidebar-close o-icon-close',
+        'title' => $translate('Close'),
+    ]); ?>
+    <div class="sidebar-content"></div>
+</div>
+
+<?php else: ?>
+
+<div class="no-resources">
+    <p><?php echo $translate('Omeka could not find any sources.'); ?></p>
+</div>
+
+<?php endif; ?>
