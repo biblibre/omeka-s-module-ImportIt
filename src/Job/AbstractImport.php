@@ -194,4 +194,16 @@ abstract class AbstractImport extends AbstractJob
             }
         }
     }
+
+    protected function isModuleActive(string $id): bool
+    {
+        $moduleManager = $this->getServiceLocator()->get('Omeka\ModuleManager');
+
+        $module = $moduleManager->getModule($id);
+        if ($module && $module->getState() === \Omeka\Module\Manager::STATE_ACTIVE) {
+            return true;
+        }
+
+        return false;
+    }
 }
