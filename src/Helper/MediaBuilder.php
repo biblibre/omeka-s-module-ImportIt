@@ -4,6 +4,7 @@ namespace ImportIt\Helper;
 
 use DateTime;
 use Doctrine\ORM\EntityManager;
+use Exception;
 use Laminas\ServiceManager\ServiceLocatorInterface;
 use Omeka\Api\Request;
 use Omeka\Entity\Item;
@@ -55,6 +56,16 @@ class MediaBuilder extends ResourceBuilder
         ]);
         $errorStore = new ErrorStore;
         $ingester->ingest($media, $request, $errorStore);
+
+        if ($errorStore->hasErrors()) {
+            $messages = [];
+            foreach ($errorStore->getErrors() as $key => $errors) {
+                array_push($messages, ...$errors);
+            }
+
+            throw new Exception(sprintf('Local ingestion failed: %s', implode(' ; ', $messages)));
+        }
+
     }
 
     public function ingestUrl(string $url): void
@@ -75,5 +86,14 @@ class MediaBuilder extends ResourceBuilder
         ]);
         $errorStore = new ErrorStore;
         $ingester->ingest($media, $request, $errorStore);
+
+        if ($errorStore->hasErrors()) {
+            $messages = [];
+            foreach ($errorStore->getErrors() as $key => $errors) {
+                array_push($messages, ...$errors);
+            }
+
+            throw new Exception(sprintf('URL ingestion failed: %s', implode(' ; ', $messages)));
+        }
     }
 }

@@ -194,7 +194,6 @@ class ServerSideMets extends AbstractImport
         }
 
         $mediaBuilder = $this->getMediaBuilder();
-        $mediaBuilder->setItem($item);
 
         $dmdId = $xpath->evaluate('string(parent::mets:div/@DMDID)', $fptrNode);
         if ($dmdId) {
@@ -230,6 +229,7 @@ class ServerSideMets extends AbstractImport
             $mediaBuilder->ingestLocalFile($filepath);
         }
 
+        $mediaBuilder->setItem($item);
         $media = $mediaBuilder->getMedia();
 
         $em = $this->getEntityManager();
