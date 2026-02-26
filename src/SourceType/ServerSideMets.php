@@ -61,6 +61,11 @@ class ServerSideMets implements SourceTypeInterface
                 ],
             ],
         ]);
+
+        $inputFilter->add([
+            'name' => 'resource_visibility',
+            'allow_empty' => true,
+        ]);
     }
 
     public function getSourceDescription(SourceRepresentation $source, PhpRenderer $renderer): string
