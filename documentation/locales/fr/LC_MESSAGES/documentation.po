@@ -1,0 +1,408 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, BibLibre
+# This file is distributed under the same license as the Import It package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Import It\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-27 13:32+0100\n"
+"PO-Revision-Date: 2026-02-27 13:33+0100\n"
+"Last-Translator: Julian Maurice <julian.maurice@biblibre.com>\n"
+"Language-Team: fr <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Generated-By: Babel 2.18.0\n"
+"X-Generator: Poedit 3.6\n"
+
+#: ../../index.rst:2
+msgid "Import It documentation"
+msgstr "Documentation Import It"
+
+#: ../../index.rst:4
+msgid ""
+"`Import It`_ is a module for Omeka S. It allows administrators to import "
+"repeatedly from external sources into Omeka S."
+msgstr ""
+"`Import It`_ est un module pour Omeka S. Il permet aux administrateurs "
+"d'importer de manière répétée dans Omeka S depuis des sources externes."
+
+#: ../../index.rst:9
+msgid ""
+"The idea is to define a source once in Omeka S, and then import from this source "
+"regularly, which can be manual or automatic (using cronjobs for instance)."
+msgstr ""
+"L'idée est de définir une source une fois dans Omeka S, puis d'importer depuis "
+"cette source régulièrement, ce qui peut être fait manuellement ou "
+"automatiquement (en utilisant des tâches planifiées par exemple)."
+
+#: ../../index.rst:13
+msgid "This is useful for sources that are updated on a regular basis."
+msgstr "C'est utile pour les sources qui sont mises à jour régulièrement."
+
+#: ../../index.rst:17
+msgid "Requirements"
+msgstr "Pré-requis"
+
+#: ../../index.rst:19
+msgid "Omeka S >= 4.1.0"
+msgstr "Omeka S >= 4.1.0"
+
+#: ../../index.rst:20
+msgid "PHP >= 8.0"
+msgstr "PHP >= 8.0"
+
+#: ../../index.rst:22
+msgid "Depending on the sources used, there may be other requirements"
+msgstr "Selon les sources utilisées, il peut y avoir d'autres pré-requis"
+
+#: ../../index.rst:26
+msgid "Supported sources"
+msgstr "Sources supportées"
+
+#: ../../index.rst:28
+msgid ""
+"Import It currently supports only one source type (more will be added later)."
+msgstr ""
+"Import It prend en charge pour l'instant un seul type de source (d'autres seront "
+"ajoutés plus tard)."
+
+#: ../../index.rst:30
+msgid "Other modules can add support for other source types."
+msgstr ""
+"D'autres modules peuvent ajouter la prise en charge d'autres types de sources."
+
+#: ../../index.rst:32
+msgid ":doc:`source-types/server-side-mets`"
+msgstr ":doc:`source-types/server-side-mets`"
+
+#: ../../index.rst:36
+msgid "Logs"
+msgstr "Journaux"
+
+#: ../../index.rst:38
+msgid ""
+"Import It does not use the default log mechanism, because imports often produce "
+"a lot of log messages and that can slow imports down. It can also make the "
+"``job`` table grow quickly."
+msgstr ""
+"Import It n'utilise pas le mécanisme par défaut de journalisation, car les "
+"imports produisent souvent beaucoup de messages et cela peut ralentir les "
+"imports. Cela peut aussi faire grossir la table ``job`` rapidement."
+
+#: ../../index.rst:42
+msgid ""
+"Instead, each import have its own log file on the server. That way they can be "
+"rotated with usual tools (eg. logrotate)."
+msgstr ""
+"À la place, chaque import a son propre fichier de journalisation. De cette "
+"manière, ils peuvent être gérés par les outils habituels de rotation de logs "
+"(ex: logrotate)."
+
+#: ../../index.rst:45
+msgid ""
+"They can still be viewed (or downloaded) from the admin interface (until they "
+"are rotated)."
+msgstr ""
+"Ils peuvent néanmoins être visualisés (ou téléchargés) depuis l'interface "
+"d'administration (jusqu'à leur rotation)."
+
+#: ../../index.rst:48
+msgid ""
+"By default, log files are stored in ``OMEKA_PATH/logs/importit``. It can be "
+"changed by adding the following code to ``config/local.config.php``:"
+msgstr ""
+"Par défaut, les fichiers de journaux sont stockés dans ``OMEKA_PATH/logs/"
+"importit``. Cela peut être modifié en ajoutant le code suivant dans ``config/"
+"local.config.php``:"
+
+#: ../../index.rst:59
+msgid "Start import from the command line"
+msgstr "Démarrer l'import depuis la ligne de commande"
+
+#: ../../index.rst:61
+msgid ""
+"To start an import from the command line (useful to run imports periodically), "
+"execute the following command:"
+msgstr ""
+"Pour démarrer un import depuis la ligne de commande (utile pour lancer des "
+"imports périodiquement), exécuter la commande suivante:"
+
+#: ../../index.rst:68
+msgid ""
+"``<user-id>`` is the ID of an Omeka S user. The import will be run as this user."
+msgstr ""
+"``<user-id>`` est l'ID de l'utilisateur Omeka S. L'import sera exécuté en tant "
+"que cet utilisateur."
+
+#: ../../index.rst:70
+msgid "``<source-id>`` is the ID of the Import It source."
+msgstr "``<source-id>`` est l'ID de la source Import It."
+
+#: ../../index.rst:74
+msgid "Table of contents"
+msgstr "Table des matières"
+
+#: ../../source-types.rst:2
+msgid "Source types"
+msgstr "Types de source"
+
+#: ../../source-types/server-side-mets.rst:2
+msgid "Server-side METS"
+msgstr "METS côté serveur"
+
+#: ../../source-types/server-side-mets.rst:4
+msgid ""
+"Sources of this type will scan a directory recursively, searching for METS files."
+msgstr ""
+"Les sources de ce type parcourront un répertoire de manière récursive, à la "
+"recherche de fichier METS."
+
+#: ../../source-types/server-side-mets.rst:6
+msgid ""
+"Each METS file will be imported as an item. If it references other files (with "
+"``fptr``) they will be imported as media."
+msgstr ""
+"Chaque fichier METS sera importé comme contenu. S'il référence d'autres fichiers "
+"(avec ``fptr``) ils seront importés comme média."
+
+#: ../../source-types/server-side-mets.rst:9
+msgid "Only ``dc`` metadata is currently supported."
+msgstr "Seules les métadonnées ``dc`` sont prises en charge."
+
+#: ../../source-types/server-side-mets.rst:11
+msgid ""
+"Imported resources are not re-imported on the next runs. In other words, this "
+"source type only creates resources. Resources are never updated."
+msgstr ""
+"Les ressources importées ne sont pas ré-importées lors des imports suivants. En "
+"d'autres termes, ce type de source fait uniquement de la création de ressource. "
+"Les ressources ne sont jamais mises à jour."
+
+#: ../../source-types/server-side-mets.rst:15
+msgid "Additional requirements"
+msgstr "Pré-requis supplémentaires"
+
+#: ../../source-types/server-side-mets.rst:17
+msgid ""
+"`Local Media Ingester <https://omeka.org/s/modules/LocalMediaIngester/>`__ if "
+"the referenced files are local (on the Omeka server)."
+msgstr ""
+"`Local Media Ingester <https://omeka.org/s/modules/LocalMediaIngester/>`__ si "
+"les fichiers référencés sont locaux (sur le serveur Omeka)."
+
+#: ../../source-types/server-side-mets.rst:21
+msgid "Configuration"
+msgstr "Configuration"
+
+#: ../../source-types/server-side-mets.rst:23
+msgid "Sources of this type have the following settings:"
+msgstr "Les sources de ce type ont les paramètres suivants:"
+
+#: ../../source-types/server-side-mets.rst:25
+msgid "Path"
+msgstr "Chemin"
+
+#: ../../source-types/server-side-mets.rst:26
+msgid "The absolute path of the directory containing METS files"
+msgstr "Le chemin absolu du répertoire contenant les fichiers METS"
+
+#: ../../source-types/server-side-mets.rst:28
+msgid "Visibility of created resources"
+msgstr "Visibilité des ressources créées"
+
+#: ../../source-types/server-side-mets.rst:29
+msgid "Whether created resources should be made public or private"
+msgstr "Si les ressources créées doivent être faites publiques ou privées"
+
+#: ../../source-types/server-side-mets.rst:32
+msgid "Process"
+msgstr "Processus"
+
+#: ../../source-types/server-side-mets.rst:34
+msgid ""
+"The import process starts by finding all METS files. Files are considered METS "
+"files if:"
+msgstr ""
+"Le processus d'import commence par trouver tous les fichiers METS. Les fichiers "
+"sont considérés comme des fichiers METS si:"
+
+#: ../../source-types/server-side-mets.rst:36
+msgid "their extension is ``.xml``,"
+msgstr "leur extension est ``.xml``,"
+
+#: ../../source-types/server-side-mets.rst:37
+msgid "they are valid XML, and"
+msgstr "ils sont du XML valide, et"
+
+#: ../../source-types/server-side-mets.rst:38
+msgid "their root element is ``mets``"
+msgstr "leur élément racine est ``mets``"
+
+#: ../../source-types/server-side-mets.rst:40
+msgid ""
+"Then within each METS file we search for all ``/mets/structMap/div`` elements. "
+"For each ``div``:"
+msgstr ""
+"Puis dans chaque fichier METS on cherche tous les éléments ``/mets/structMap/"
+"div``. Pour chaque ``div``:"
+
+#: ../../source-types/server-side-mets.rst:42
+msgid ""
+"Check if we already imported this item (the identifier used is ``/"
+"mets[@OBJID]``). If not:"
+msgstr ""
+"Vérifie si on a déjà importé ce contenu (l'identifiant utilisé est ``/"
+"mets[@OBJID]``). Si non:"
+
+#: ../../source-types/server-side-mets.rst:44
+msgid "Find the corresponding ``/mets/dmdSec`` element"
+msgstr "Trouve l'élément ``/mets/dmdSec`` correspondant"
+
+#: ../../source-types/server-side-mets.rst:45
+msgid "Find a ``dc`` element inside this ``dmdSec`` element."
+msgstr "Trouve un élément ``dc`` à l'intérieur de cet élément ``dmdSec``."
+
+#: ../../source-types/server-side-mets.rst:46
+msgid "Transform ``dc``'s children into Omeka literal values"
+msgstr "Transforme les enfants de ``dc`` en valeurs litérales Omeka"
+
+#: ../../source-types/server-side-mets.rst:47
+msgid "Set the item visibility depending on settings"
+msgstr "Définit la visibilité du contenu selon les paramètres"
+
+#: ../../source-types/server-side-mets.rst:48
+msgid ""
+"Attach the item to the default sites (sites with \"Auto-assign new items\" on)"
+msgstr ""
+"Attache le contenu aux sites par défaut (les sites avec \"Rattacher "
+"automatiquement les nouveaux contenus\" activé)"
+
+#: ../../source-types/server-side-mets.rst:49
+msgid "Save the item"
+msgstr "Enregistre le contenu"
+
+#: ../../source-types/server-side-mets.rst:51
+msgid ""
+"Then we search for ``fptr`` elements within the ``div``. For each ``fptr`` "
+"found, check if we already imported this media (the identifiers used are ``/"
+"mets[@OBJID]`` and ``fptr[@FILEID]``). If not:"
+msgstr ""
+"Puis on cherche les éléments ``fptr`` à l'intérieur du ``div``. Pour chaque "
+"``fptr`` trouvé, on vérifie si on a déjà importé ce média (les identifiants "
+"utilisés sont ``/mets[@OBJID]`` et ``fptr[@FILEID]``). Si non:"
+
+#: ../../source-types/server-side-mets.rst:55
+msgid ""
+"Find the corresponding ``/mets/fileSec//file`` and its ``FLocat`` element. The "
+"``href`` attribute is read to determine the file location. If it starts with "
+"``http://`` or ``https://`` the file is downloaded first. File paths are "
+"interpreted relative to the METS file path."
+msgstr ""
+"Trouve le ``/mets/fileSec//file`` correspondant et son élément ``FLocat``. "
+"L'attribute ``href`` est lu pour déterminer l'emplacement du fichier. S'il "
+"commence par ``http://`` ou ``https://`` le fichier est téléchargé. Les chemins "
+"de fichier sont interprétés relativement au chemin du fichier METS."
+
+#: ../../source-types/server-side-mets.rst:59
+msgid ""
+"If the module ``Alto`` is enabled and the file is an ALTO file, then the file is "
+"attached to the media corresponding to the previous ``fptr`` element."
+msgstr ""
+"Si le module ``Alto`` est activé et si le fichier un fichier ALTO, alors ce "
+"fichier est attaché au média correspondant au précédent élément ``fptr``."
+
+#: ../../source-types/server-side-mets.rst:62
+msgid ""
+"If ``Alto`` is not enabled or the file is not an ALTO file, a media is created. "
+"If a corresponding ``dmdSec`` element is found then the corresponding ``dc`` "
+"data is imported as literal values."
+msgstr ""
+"Si ``Alto`` n'est pas activé ou si le fichier n'est pas un fichier ALTO, un "
+"média est créé. Si un élément ``dmdSec`` correspondant existe alors les données "
+"du ``dc`` correspondant sont importées comme valeurs litérales."
+
+#: ../../sources.rst:2
+msgid "Sources"
+msgstr "Sources"
+
+#: ../../sources.rst:4
+msgid ""
+"To be able to import resources, you need to declare a source. A source has a "
+"name, a type and several settings depending on its type. The source type "
+"dictates how resources are retrieved (whether it's from a file, a URL, or "
+"something else) and transformed before being imported in Omeka."
+msgstr ""
+"Pour pouvoir importer des ressources, vous avez besoin de déclarer une source. "
+"Une source a un nom, un type et plusieurs paramètres qui dépendent de son type. "
+"Le type de source dicte comment les ressources sont récupérées (si c'est depuis "
+"un fichier, une URL, ou autre chose) et transformées avant d'être importées dans "
+"Omeka."
+
+#: ../../sources.rst:9
+msgid "You can have multiple sources of the same type."
+msgstr "Vous pouvez avoir plusieurs sources du même type."
+
+#: ../../sources.rst:11
+msgid ""
+"Currently there is only one source type, :doc:`Server-Side METS <source-types/"
+"server-side-mets>`, which browses local METS files and creates corresponding "
+"items and media."
+msgstr ""
+"Actuellement il n'y a qu'un seul type de source, :doc:`METS côté serveur <source-"
+"types/server-side-mets>`, qui parcoure les fichiers METS locaux et crée les "
+"contenus et médias correspondants."
+
+#: ../../sources.rst:16
+msgid "Create a source"
+msgstr "Créer une source"
+
+#: ../../sources.rst:18
+msgid "To create a new source, click on \"Import It\" in the navigation menu."
+msgstr ""
+"Pour créer une nouvelle source, cliquez sur \"Import It\" dans le menu de "
+"navigation."
+
+#: ../../sources.rst:22
+msgid "Then click on the \"Add new source\" button."
+msgstr "Puis cliquez sur le bouton \"Ajouter une nouvelle source\"."
+
+#: ../../sources.rst:26
+msgid ""
+"Give the source a name and select its type, then click on the \"Add\" button."
+msgstr ""
+"Donnez un nom à la source et sélectionnez son type, puis cliquez sur le bouton "
+"\"Ajouter\"."
+
+#: ../../sources.rst:30
+msgid "Fill the type-specific settings, then click on the \"Save changes\" button."
+msgstr ""
+"Remplissez les paramètres spécifiques au type, puis cliquez sur le bouton "
+"\"Enregistrer\"."
+
+#: ../../sources.rst:34
+msgid ""
+"For more details on type-specific settings, read the corresponding page "
+"in :doc:`source-types`."
+msgstr ""
+"Pour plus de détails sur les paramètres spécifiques au type, lisez la page "
+"correspondante dans :doc:`source-types`."
+
+#: ../../sources.rst:38
+msgid "Start import"
+msgstr "Démarrer l'import"
+
+#: ../../sources.rst:40
+msgid "Click on the import icon to go to the import settings form."
+msgstr ""
+"Cliquez sur l'icône d'import pour aller sur le formulaire des paramètres "
+"d'import."
+
+#: ../../sources.rst:44
+msgid "Once the settings are done, click on the \"Start import\" button."
+msgstr "Une fois le paramétrage fait, cliquez sur le bouton \"Démarrer l'import\"."
