@@ -132,6 +132,14 @@ class ServerSideMets extends AbstractImport
 
             $item = $itemBuilder->getItem();
 
+            $resource_visibility = $this->getSourceSetting('resource_visibility', '');
+            if ($resource_visibility === '') {
+                $default_to_private = $this->getServiceLocator()->get('Omeka\Settings')->get('default_to_private', false);
+                $item->setIsPublic(!$default_to_private);
+            } else {
+                $item->setIsPublic($resource_visibility === 'public');
+            }
+
             $em = $this->getEntityManager();
             $em->persist($item);
             $em->flush();

@@ -100,6 +100,17 @@ abstract class AbstractImport extends AbstractJob
         return $this->source;
     }
 
+    protected function getSourceSetting(string $name, mixed $default = null)
+    {
+        $settings = $this->getSource()->getSettings();
+
+        if (!array_key_exists($name, $settings)) {
+            return $default;
+        }
+
+        return $settings[$name];
+    }
+
     protected function getEntityManager(): \Doctrine\ORM\EntityManager
     {
         return $this->getServiceLocator()->get('Omeka\EntityManager');

@@ -4,9 +4,14 @@ namespace ImportIt\SourceType;
 
 use ImportIt\Api\Representation\SourceRepresentation;
 use Laminas\View\Renderer\PhpRenderer;
+use Omeka\Settings\Settings;
 
 class ServerSideMets implements SourceTypeInterface
 {
+    public function __construct(protected Settings $settings)
+    {
+    }
+
     public function getLabel(): string
     {
         return 'Server-side METS'; // @translate
@@ -27,6 +32,21 @@ class ServerSideMets implements SourceTypeInterface
             ],
             'attributes' => [
                 'required' => true,
+            ],
+        ]);
+
+        $fieldset->add([
+            'name' => 'resource_visibility',
+            'type' => 'Laminas\Form\Element\Select',
+            'options' => [
+                'label' => 'Visibility of created resources', // @translate
+                'value_options' => [
+                    'public' => 'Public', // @translate
+                    'private' => 'Private', // @translate
+                ],
+                'empty_option' => $this->settings->get('default_to_private', false) ?
+                    'Use global setting (private)' : // @translate
+                    'Use global setting (public)', // @translate
             ],
         ]);
     }
