@@ -128,6 +128,8 @@ class ServerSideMets extends AbstractImport
                 $itemBuilder->addLiteralValue($term, $propertyNode->textContent);
             }
 
+            $itemBuilder->addDefaultSites();
+
             $item = $itemBuilder->getItem();
 
             $em = $this->getEntityManager();

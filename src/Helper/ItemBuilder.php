@@ -20,4 +20,12 @@ class ItemBuilder extends ResourceBuilder
     {
         return $this->resource;
     }
+
+    public function addDefaultSites(): void
+    {
+        $sites = $this->getEntityManager()->getRepository('Omeka\Entity\Site')->findBy(['assignNewItems' => true]);
+        foreach ($sites as $site) {
+            $this->getItem()->getSites()->set($site->getId(), $site);
+        }
+    }
 }
