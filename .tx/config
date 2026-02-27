@@ -1,0 +1,16 @@
+[main]
+host = https://app.transifex.com
+
+[o:biblibre-:p:omeka-s-modules:r:importit]
+file_filter  = language/<lang>.po
+source_file  = language/template.pot
+source_lang  = en
+type         = PO
+minimum_perc = 10
+
+[o:biblibre-:p:omeka-s-modules:r:importit-documentation]
+file_filter  = documentation/locales/<lang>/LC_MESSAGES/documentation.po
+source_file  = documentation/_build/gettext/documentation.pot
+source_lang  = en
+type         = PO
+minimum_perc = 10
