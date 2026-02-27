@@ -1,0 +1,167 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>METS côté serveur &mdash; Documentation Import It </title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=e9c544c0" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d1a510d7"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/translations.js?v=e6b791cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="prev" title="Types de source" href="../source-types.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Import It
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../sources.html">Sources</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../source-types.html">Types de source</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">METS côté serveur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#additional-requirements">Pré-requis supplémentaires</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#process">Processus</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Import It</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../source-types.html">Types de source</a></li>
+      <li class="breadcrumb-item active">METS côté serveur</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source-types/server-side-mets.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="server-side-mets">
+<h1>METS côté serveur<a class="headerlink" href="#server-side-mets" title="Lien vers cette rubrique"></a></h1>
+<p>Les sources de ce type parcourront un répertoire de manière récursive, à la recherche de fichier METS.</p>
+<p>Chaque fichier METS sera importé comme contenu. S’il référence d’autres fichiers (avec <code class="docutils literal notranslate"><span class="pre">fptr</span></code>) ils seront importés comme média.</p>
+<p>Seules les métadonnées <code class="docutils literal notranslate"><span class="pre">dc</span></code> sont prises en charge.</p>
+<p>Les ressources importées ne sont pas ré-importées lors des imports suivants. En d’autres termes, ce type de source fait uniquement de la création de ressource. Les ressources ne sont jamais mises à jour.</p>
+<section id="additional-requirements">
+<h2>Pré-requis supplémentaires<a class="headerlink" href="#additional-requirements" title="Lien vers cette rubrique"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://omeka.org/s/modules/LocalMediaIngester/">Local Media Ingester</a> si les fichiers référencés sont locaux (sur le serveur Omeka).</p></li>
+</ul>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Lien vers cette rubrique"></a></h2>
+<p>Les sources de ce type ont les paramètres suivants:</p>
+<dl class="simple">
+<dt>Chemin</dt><dd><p>Le chemin absolu du répertoire contenant les fichiers METS</p>
+</dd>
+<dt>Visibilité des ressources créées</dt><dd><p>Si les ressources créées doivent être faites publiques ou privées</p>
+</dd>
+</dl>
+</section>
+<section id="process">
+<h2>Processus<a class="headerlink" href="#process" title="Lien vers cette rubrique"></a></h2>
+<p>Le processus d’import commence par trouver tous les fichiers METS. Les fichiers sont considérés comme des fichiers METS si:</p>
+<ul class="simple">
+<li><p>leur extension est <code class="docutils literal notranslate"><span class="pre">.xml</span></code>,</p></li>
+<li><p>ils sont du XML valide, et</p></li>
+<li><p>leur élément racine est <code class="docutils literal notranslate"><span class="pre">mets</span></code></p></li>
+</ul>
+<p>Puis dans chaque fichier METS on cherche tous les éléments <code class="docutils literal notranslate"><span class="pre">/mets/structMap/div</span></code>. Pour chaque <code class="docutils literal notranslate"><span class="pre">div</span></code>:</p>
+<ol class="arabic simple">
+<li><p>Vérifie si on a déjà importé ce contenu (l’identifiant utilisé est <code class="docutils literal notranslate"><span class="pre">/mets[&#64;OBJID]</span></code>). Si non:</p>
+<ol class="arabic simple">
+<li><p>Trouve l’élément <code class="docutils literal notranslate"><span class="pre">/mets/dmdSec</span></code> correspondant</p></li>
+<li><p>Trouve un élément <code class="docutils literal notranslate"><span class="pre">dc</span></code> à l’intérieur de cet élément <code class="docutils literal notranslate"><span class="pre">dmdSec</span></code>.</p></li>
+<li><p>Transforme les enfants de <code class="docutils literal notranslate"><span class="pre">dc</span></code> en valeurs litérales Omeka</p></li>
+<li><p>Définit la visibilité du contenu selon les paramètres</p></li>
+<li><p>Attache le contenu aux sites par défaut (les sites avec « Rattacher automatiquement les nouveaux contenus » activé)</p></li>
+<li><p>Enregistre le contenu</p></li>
+</ol>
+</li>
+<li><p>Puis on cherche les éléments <code class="docutils literal notranslate"><span class="pre">fptr</span></code> à l’intérieur du <code class="docutils literal notranslate"><span class="pre">div</span></code>. Pour chaque <code class="docutils literal notranslate"><span class="pre">fptr</span></code> trouvé, on vérifie si on a déjà importé ce média (les identifiants utilisés sont <code class="docutils literal notranslate"><span class="pre">/mets[&#64;OBJID]</span></code> et <code class="docutils literal notranslate"><span class="pre">fptr[&#64;FILEID]</span></code>). Si non:</p>
+<ol class="arabic simple">
+<li><p>Trouve le <code class="docutils literal notranslate"><span class="pre">/mets/fileSec//file</span></code> correspondant et son élément <code class="docutils literal notranslate"><span class="pre">FLocat</span></code>. L’attribute <code class="docutils literal notranslate"><span class="pre">href</span></code> est lu pour déterminer l’emplacement du fichier. S’il commence par <code class="docutils literal notranslate"><span class="pre">http://</span></code> ou <code class="docutils literal notranslate"><span class="pre">https://</span></code> le fichier est téléchargé. Les chemins de fichier sont interprétés relativement au chemin du fichier METS.</p></li>
+<li><p>Si le module <code class="docutils literal notranslate"><span class="pre">Alto</span></code> est activé et si le fichier un fichier ALTO, alors ce fichier est attaché au média correspondant au précédent élément <code class="docutils literal notranslate"><span class="pre">fptr</span></code>.</p></li>
+<li><p>Si <code class="docutils literal notranslate"><span class="pre">Alto</span></code> n’est pas activé ou si le fichier n’est pas un fichier ALTO, un média est créé. Si un élément <code class="docutils literal notranslate"><span class="pre">dmdSec</span></code> correspondant existe alors les données du <code class="docutils literal notranslate"><span class="pre">dc</span></code> correspondant sont importées comme valeurs litérales.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="../source-types.html" class="btn btn-neutral float-left" title="Types de source" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2026, BibLibre.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

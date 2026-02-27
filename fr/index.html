@@ -1,0 +1,165 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation Import It &mdash; Documentation Import It </title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=e9c544c0" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d1a510d7"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/translations.js?v=e6b791cb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Sources" href="sources.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Import It
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="sources.html">Sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source-types.html">Types de source</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Import It</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Documentation Import It</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="import-it-documentation">
+<h1>Documentation Import It<a class="headerlink" href="#import-it-documentation" title="Lien vers cette rubrique"></a></h1>
+<p><a class="reference external" href="https://github.com/biblibre/omeka-s-module-ImportIt">Import It</a> est un module pour Omeka S. Il permet aux administrateurs d’importer de manière répétée dans Omeka S depuis des sources externes.</p>
+<p>L’idée est de définir une source une fois dans Omeka S, puis d’importer depuis cette source régulièrement, ce qui peut être fait manuellement ou automatiquement (en utilisant des tâches planifiées par exemple).</p>
+<p>C’est utile pour les sources qui sont mises à jour régulièrement.</p>
+<section id="requirements">
+<h2>Pré-requis<a class="headerlink" href="#requirements" title="Lien vers cette rubrique"></a></h2>
+<ul class="simple">
+<li><p>Omeka S &gt;= 4.1.0</p></li>
+<li><p>PHP &gt;= 8.0</p></li>
+</ul>
+<p>Selon les sources utilisées, il peut y avoir d’autres pré-requis</p>
+</section>
+<section id="supported-sources">
+<h2>Sources supportées<a class="headerlink" href="#supported-sources" title="Lien vers cette rubrique"></a></h2>
+<p>Import It prend en charge pour l’instant un seul type de source (d’autres seront ajoutés plus tard).</p>
+<p>D’autres modules peuvent ajouter la prise en charge d’autres types de sources.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="source-types/server-side-mets.html"><span class="doc">METS côté serveur</span></a></p></li>
+</ul>
+</section>
+<section id="logs">
+<h2>Journaux<a class="headerlink" href="#logs" title="Lien vers cette rubrique"></a></h2>
+<p>Import It n’utilise pas le mécanisme par défaut de journalisation, car les imports produisent souvent beaucoup de messages et cela peut ralentir les imports. Cela peut aussi faire grossir la table <code class="docutils literal notranslate"><span class="pre">job</span></code> rapidement.</p>
+<p>À la place, chaque import a son propre fichier de journalisation. De cette manière, ils peuvent être gérés par les outils habituels de rotation de logs (ex: logrotate).</p>
+<p>Ils peuvent néanmoins être visualisés (ou téléchargés) depuis l’interface d’administration (jusqu’à leur rotation).</p>
+<p>Par défaut, les fichiers de journaux sont stockés dans <code class="docutils literal notranslate"><span class="pre">OMEKA_PATH/logs/importit</span></code>. Cela peut être modifié en ajoutant le code suivant dans <code class="docutils literal notranslate"><span class="pre">config/local.config.php</span></code>:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;importit_logger&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+    <span class="s1">&#39;dir&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;/var/log/importit&#39;</span><span class="p">,</span> <span class="c1">// Make sure that Omeka have write permissions on this directory</span>
+<span class="p">],</span>
+</pre></div>
+</div>
+</section>
+<section id="start-import-from-the-command-line">
+<h2>Démarrer l’import depuis la ligne de commande<a class="headerlink" href="#start-import-from-the-command-line" title="Lien vers cette rubrique"></a></h2>
+<p>Pour démarrer un import depuis la ligne de commande (utile pour lancer des imports périodiquement), exécuter la commande suivante:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">$OMEKA_PATH</span>/modules/ImportIt/script/import.php<span class="w"> </span>--user-id<span class="w"> </span>&lt;user-id&gt;<span class="w"> </span>--source-id<span class="w"> </span>&lt;source-id&gt;
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;user-id&gt;</span></code> est l’ID de l’utilisateur Omeka S. L’import sera exécuté en tant que cet utilisateur.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;source-id&gt;</span></code> est l’ID de la source Import It.</p>
+</section>
+</section>
+<section id="table-of-contents">
+<h1>Table des matières<a class="headerlink" href="#table-of-contents" title="Lien vers cette rubrique"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sources.html">Sources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sources.html#create-a-source">Créer une source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sources.html#start-import">Démarrer l’import</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="source-types.html">Types de source</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="source-types/server-side-mets.html">METS côté serveur</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="sources.html" class="btn btn-neutral float-right" title="Sources" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2026, BibLibre.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
