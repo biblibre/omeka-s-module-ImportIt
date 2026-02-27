@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-11 12:19+0200\n"
-"PO-Revision-Date: 2025-07-11 12:23+0200\n"
+"POT-Creation-Date: 2026-02-27 13:42+0100\n"
+"PO-Revision-Date: 2026-02-27 13:42+0100\n"
 "Last-Translator: Julian Maurice <julian.maurice@biblibre.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -45,7 +45,7 @@ msgstr "Voir les détails de la tâche"
 #: view/import-it/admin/job/browse.phtml:64
 #: view/import-it/admin/job/show.phtml:61
 #: view/import-it/admin/log/browse.phtml:3
-#: view/import-it/admin/source/browse.phtml:81
+#: view/import-it/admin/source/browse.phtml:82
 msgid "Logs"
 msgstr "Journaux"
 
@@ -107,7 +107,7 @@ msgstr "Dernière tâche"
 msgid "Start import"
 msgstr "Démarrer l'import"
 
-#: view/import-it/admin/source/browse.phtml:106
+#: view/import-it/admin/source/browse.phtml:107
 msgid "Omeka could not find any sources."
 msgstr "Omeka n'a trouvé aucune source."
 
@@ -165,8 +165,8 @@ msgid ""
 "Delete all entities that were imported from this source before starting the "
 "new import."
 msgstr ""
-"Supprime toutes les entités ayant été importées depuis cette source avant "
-"de démarrer le nouvel import."
+"Supprime toutes les entités ayant été importées depuis cette source avant de "
+"démarrer le nouvel import."
 
 #: src/Controller/Admin/SourceController.php:52
 msgid "Source successfully created."
@@ -189,6 +189,18 @@ msgstr "Source supprimée avec succès"
 msgid "Import started in a background job. %s"
 msgstr "L'import a démarré dans une tâche de fond. %s"
 
-#: src/SourceType/ServerSideMets.php:12
+#: src/SourceType/ServerSideMets.php:17
 msgid "Server-side METS"
 msgstr "METS côté serveur"
+
+#: src/SourceType/ServerSideMets.php:42
+msgid "Visibility of created resources"
+msgstr "Visibilité des ressources créées"
+
+#: src/SourceType/ServerSideMets.php:48
+msgid "Use global setting (private)"
+msgstr "Utiliser le paramètre global (privé)"
+
+#: src/SourceType/ServerSideMets.php:49
+msgid "Use global setting (public)"
+msgstr "Utiliser le paramètre global (public)"
