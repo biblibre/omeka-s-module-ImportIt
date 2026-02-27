@@ -10,6 +10,8 @@ instance).
 
 This is useful for sources that are updated on a regular basis.
 
+The complete documentation of Import It can be found at
+<https://biblibre.github.io/omeka-s-module-ImportIt>
 
 ## Requirements
 
@@ -36,6 +38,10 @@ Each METS file will be imported as an item. If it references other files (with
 Only `dc` metadata is supported.
 
 Imported resources are not re-imported on the next runs.
+
+See
+<https://biblibre.github.io/omeka-s-module-ImportIt/en/source-types/server-side-mets.html>
+for more details
 
 #### Additional requirements
 
