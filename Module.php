@@ -85,23 +85,39 @@ class Module extends AbstractModule
     {
         $sharedEventManager->attach('*', 'view.layout', [$this, 'onViewLayout']);
 
-        $sharedEventManager->attach(
-            '*',
-            'view.advanced_search',
-            [$this, 'onViewAdvancedSearch']
-        );
+        $controllers = [
+            'Omeka\Controller\Admin\Item',
+            'Omeka\Controller\Admin\ItemSet',
+            'Omeka\Controller\Admin\Media',
+            'Omeka\Controller\Admin\Job',
+        ];
+        foreach ($controllers as $controller) {
+            $sharedEventManager->attach(
+                $controller,
+                'view.advanced_search',
+                [$this, 'onViewAdvancedSearch']
+            );
 
-        $sharedEventManager->attach(
-            '*',
-            'api.search.query',
-            [$this, 'onApiSearchQuery']
-        );
+            $sharedEventManager->attach(
+                $controller,
+                'view.search.filters',
+                [$this, 'onViewSearchFilters']
+            );
+        }
 
-        $sharedEventManager->attach(
-            '*',
-            'view.search.filters',
-            [$this, 'onViewSearchFilters']
-        );
+        $apiAdapters = [
+            'Omeka\Api\Adapter\ItemAdapter',
+            'Omeka\Api\Adapter\ItemSetAdapter',
+            'Omeka\Api\Adapter\MediaAdapter',
+            'Omeka\Api\Adapter\JobAdapter',
+        ];
+        foreach ($apiAdapters as $apiAdapter) {
+            $sharedEventManager->attach(
+                $apiAdapter,
+                'api.search.query',
+                [$this, 'onApiSearchQuery']
+            );
+        }
     }
 
     public function onViewLayout(Event $event)
